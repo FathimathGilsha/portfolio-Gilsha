@@ -1,0 +1,300 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Beginner Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            pointer-events: none;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skill-bar {
+            height: 4px;
+            background: #e5e5e5;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            width: 0%;
+            animation: fillBar 2s ease-out forwards;
+        }
+        @keyframes fillBar {
+            to {
+                width: 100%;
+            }
+        }
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .dark .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+        .dark {
+            background: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark .skill-bar {
+            background: #4a5568;
+        }
+        .toggle {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900">
+    <!-- Header/Navbar -->
+    <header class="navbar fixed top-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-2xl font-bold">Portfolio</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#hero" class="hover:text-blue-500 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-500 transition">Skills</a></li>
+                <li><a href="#projects" class="hover:text-blue-500 transition">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <div class="toggle flex items-center" onclick="toggleDarkMode()">
+                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <div class="md:hidden cursor-pointer" onclick="toggleMobileMenu()" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 p-4">
+            <ul class="space-y-2">
+                <li><a href="#hero" class="block hover:text-blue-500 transition">Home</a></li>
+                <li><a href="#about" class="block hover:text-blue-500 transition">About</a></li>
+                <li><a href="#skills" class="block hover:text-blue-500 transition">Skills</a></li>
+                <li><a href="#projects" class="block hover:text-blue-500 transition">Projects</a></li>
+                <li><a href="#contact" class="block hover:text-blue-500 transition">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto text-center px-4 fade-in">
+            <img src="C:\Users\ALEEFA NOURIN\Desktop\gilu.jpg" alt="My Picture" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-lg" />
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Fathimath Gilsha</h1>
+            <p class="text-lg md:text-xl mb-8">Python Developer</p>
+            <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Check My Projects</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <img src="C:\Users\ALEEFA NOURIN\Desktop\gilu2.jpg" alt="Picture" class="rounded-lg shadow-lg" />
+                <div>
+                    <p class="text-lg mb-6">Hi, I'm Gilsha, a beginner programmer just starting my journey in software development. I'm passionate about learning new technologies and building small projects to practice my skills. I love problem-solving and am eager to contribute to real-world applications.</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Built 1 personal project</li>
+                        <li class="flex items-center"><svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>Learning daily through tutorials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Frontend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1"><span>HTML</span><span>70%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 70%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span>CSS</span><span>65%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 65%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Backend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1"><span>Python</span><span>45%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 45%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span>SQL</span><span>35%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 35%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <h3 class="text-xl font-semibold mb-4">Tools</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1"><span>Git</span><span>60%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 60%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1"><span>VS Code</span><span>80%</span></div>
+                            <div class="skill-bar"><div class="skill-fill" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">My Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg project-card fade-in">
+                    <img src="C:\Users\ALEEFA NOURIN\Downloads\lost.png" alt="Simple weather app interface displaying current weather with icons, temperature, and location, built with HTML, CSS, and JavaScript" class="rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Lost and Found Portal</h3>
+                    <p class="mb-4">A simple online platform that helps users report, search, and recover lost or found items easily.</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">HTML</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">CSS</span>
+                        <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">PHP</span>
+                    </div>
+                    <a href="#" class="text-blue-600 hover:underline">View Project</a>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Get In Touch</h2>
+            <div class="max-w-lg mx-auto">
+                <form class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2">Name</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-600 dark:text-white" placeholder="Your Name">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2">Email</label>
+                        <input type="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-600 dark:text-white" placeholder="your@email.com">
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-sm font-medium mb-2">Message</label>
+                        <textarea rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-600 dark:text-white" placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Gilsha Beginner. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="https://www.linkedin.com/in/aleefa-nourin-44a159367" class="mx-2 hover:text-blue-400 transition">LinkedIn</a>
+                <a href="https://github.com/FathimathGilsha" class="mx-2 hover:text-blue-400 transition">GitHub</a>
+                <a href="mailto:gilsha2023@gmail.com" class="mx-2 hover:text-blue-400 transition">E-mail</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark') ? 'enabled' : 'disabled');
+        }
+
+        // Load dark mode preference on page load
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark');
+        }
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Skill bar animation trigger
+        document.querySelectorAll('.skill-fill').forEach((fill, index) => {
+            const delay = index * 200;
+            setTimeout(() => {
+                fill.classList.add('animate');
+                fill.style.width = fill.parentElement.previousElementSibling.children[1].textContent;
+            }, delay);
+        });
+    </script>
+</body>
+</html>
+</content>
+</create_file>
