@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Beginner Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css"> <!-- External CSS -->
+</head>
+<body class="text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-900">
+    <!-- Header/Navbar -->
+    <header class="navbar fixed top-0 w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto flex justify-between items-center p-4">
+            <div class="text-2xl font-bold">Portfolio</div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#hero" class="hover:text-blue-500 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-blue-500 transition">About</a></li>
+                <li><a href="#skills" class="hover:text-blue-500 transition">Skills</a></li>
+                <li><a href="#projects" class="hover:text-blue-500 transition">Projects</a></li>
+                <li><a href="#contact" class="hover:text-blue-500 transition">Contact</a></li>
+            </ul>
+            <div class="flex items-center space-x-4">
+                <div class="toggle flex items-center" onclick="toggleDarkMode()">
+                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </div>
+                <div class="md:hidden cursor-pointer" onclick="toggleMobileMenu()" id="mobile-menu-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </div>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 p-4">
+            <ul class="space-y-2">
+                <li><a href="#hero" class="block hover:text-blue-500 transition">Home</a></li>
+                <li><a href="#about" class="block hover:text-blue-500 transition">About</a></li>
+                <li><a href="#skills" class="block hover:text-blue-500 transition">Skills</a></li>
+                <li><a href="#projects" class="block hover:text-blue-500 transition">Projects</a></li>
+                <li><a href="#contact" class="block hover:text-blue-500 transition">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-bg min-h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto text-center px-4 fade-in">
+            <img src="images/gilu.jpg" alt="My Picture" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-lg" />
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Fathimath Gilsha</h1>
+            <p class="text-lg md:text-xl mb-8">Python Developer</p>
+            <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Check My Projects</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center fade-in">
+                <img src="images/gilu2.jpg" alt="Picture" class="rounded-lg shadow-lg" />
+                <div>
+                    <p class="text-lg mb-6">Hi, I'm Gilsha, a beginner programmer just starting my journey...</p>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">✔ Built 1 personal project</li>
+                        <li class="flex items-center">✔ Learning daily through tutorials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Skills</h2>
+            <!-- Same skills content -->
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">My Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg project-card fade-in">
+                    <img src="images/lost.png" alt="Lost and Found Portal" class="rounded-lg mb-4" />
+                    <h3 class="text-xl font-semibold mb-2">Lost and Found Portal</h3>
+                    <p class="mb-4">A simple online platform that helps users report, search, and recover lost or found items easily.</p>
+                    <a href="#" class="text-blue-600 hover:underline">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">Get In Touch</h2>
+            <div class="max-w-lg mx-auto">
+                <form class="bg-white dark:bg-gray-700 p-8 rounded-lg shadow-lg">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 mb-4 border rounded-md">
+                    <input type="email" placeholder="Your Email" class="w-full p-3 mb-4 border rounded-md">
+                    <textarea rows="5" placeholder="Your message..." class="w-full p-3 mb-4 border rounded-md"></textarea>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 Gilsha Beginner. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="mx-2 hover:text-blue-400">LinkedIn</a>
+                <a href="https://github.com/FathimathGilsha" class="mx-2 hover:text-blue-400">GitHub</a>
+                <a href="mailto:gilsha2023@gmail.com" class="mx-2 hover:text-blue-400">E-mail</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script> <!-- External JavaScript -->
+</body>
+</html>
